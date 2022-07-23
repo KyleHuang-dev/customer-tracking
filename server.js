@@ -78,7 +78,7 @@ app.put('/addAmount', (request, response) => {
 })
 
 app.delete('/deleteCustomer', (request, response) => {
-    db.collection('customers').deleteOne({firstName: request.body.firstNameS})
+    db.collection('customers').deleteOne({lastName: request.body.lastNameS})
     .then(result => {
         console.log('Customer Deleted')
         response.json('Customer Deleted')

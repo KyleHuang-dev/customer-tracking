@@ -72,11 +72,11 @@
               Add New Customer
             </button>
           </div>
-          <img
+          <!-- <img
             class="img-fluid w-50 d-none d-sm-block"
             src="img/showcase.svg"
             alt=""
-          />
+          /> -->
         </div>
       </div>
     </section>
@@ -166,11 +166,11 @@
                     <span><%= info[i].firstName %></span>
                     <span><%= info[i].lastName %></span>
                     <span><%= info[i].amount %></span>
+                    <input type="number" class="form-control" id="addAmount" name="addAmount" placeholder="Add Amount"/>
                     <!-- <span><%= info[i].likes %></span> -->
                     <!-- <span class='fa fa-thumbs-up'></span> -->
-                    <form >
-                        <input type="number" class="form-control" id="addAmount" name="addAmount" placeholder="Add Amount"/>
-                    </form>
+                    
+                    
                     <span class='fa fa-plus'></span>
                     <span class='fa fa-trash'></span>
                 </li>

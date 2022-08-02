@@ -32,7 +32,7 @@ app.get('/',(request, response)=>{
 
 app.post('/addCustomer', (request, response) => {
     db.collection('customers').insertOne({firstName: request.body.firstName, lastName: request.body.lastName,
-    amount: request.body.amount}) // , likes: 0
+    amount: Number(request.body.amount)}) // , likes: 0
     .then(result => {
         console.log('Customer Added')
         response.redirect('/')
@@ -61,9 +61,9 @@ app.post('/addCustomer', (request, response) => {
 
 app.put('/addAmount', (request, response) => {
     console.log(request);
-    db.collection('customers').updateOne({fristName: request.body.firstNameS, lastName:request.body.lastNameS },{
+    db.collection('customers').updateOne({firstName:request.body.firstNameS, lastName:request.body.lastNameS, amount:request.body.amountS},{
         $set: {
-            amount : 20000
+            amount : request.body.addAmountS + request.body.amountS
         }
     }, {
         sort: {_id: -1},

@@ -24,7 +24,7 @@
 </head>
 <body>
      <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 sticky-top ">
       <div class="container">
         <a href="#" class="navbar-brand">Customers Tracking</a>
 
@@ -43,10 +43,10 @@
               <a href="#" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Add New Customers</a>
+              <a href="#addCustomer" class="nav-link">Add New Customers</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Current Customers</a>
+              <a href="#currentCustomers" class="nav-link">Current Customers</a>
             </li>
           </ul>
         </div>
@@ -55,7 +55,7 @@
 
       <!-- Showcase -->
       <section
-      class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start"
+      class="bg-dark text-light p-5 py-5 p-lg-0 pt-lg-5 text-center text-sm-start"
     >
       <div class="container">
         <div class="d-sm-flex align-items-center justify-content-between">
@@ -157,22 +157,24 @@
     </div>
 
     <!-- Mian -->
-    <main class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+    <main id="currentCustomers"   class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
         <div class="container">
             <h1>Current Customers</h1>
+           
             <ul class="Customers">
             <% for(let i=0; i < info.length; i++) {%>
-                <li class="Customer">
-                    <span><%= info[i].firstName %></span>
-                    <span><%= info[i].lastName %></span>
-                    <span><%= info[i].amount %></span>
-                    <input type="number" class="form-control" id="addAmount" name="addAmount" placeholder="Add Amount"/>
+                <li class="Customer p-2">
+                    <span class="customer--firstName"><%= info[i].firstName %></span> 
+                    <span class="customer--lastName"><%= info[i].lastName %></span>
+                    Sales: $<span class="customer--sales"><%= info[i].amount %></span>
+                    <input type="number" class="form-control" id="addAmount" name="addAmount" placeholder="Amount"/>
+                    
                     <!-- <span><%= info[i].likes %></span> -->
                     <!-- <span class='fa fa-thumbs-up'></span> -->
                     
-                    
-                    <span class='fa fa-plus'></span>
-                    <span class='fa fa-trash'></span>
+    
+                    <span class='fa fa-plus pt-2 '>Add Amount</span>
+                    <span class='fa fa-trash pb-5' >Delete</span>
                 </li>
             <% } %>
             </ul>
